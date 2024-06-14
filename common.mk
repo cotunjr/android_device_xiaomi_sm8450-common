@@ -234,6 +234,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.touch_report.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.touch_report.rc \
     $(LOCAL_PATH)/rootdir/etc/init.xiaomi_taro.perf.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.xiaomi_taro.perf.rc \
     $(LOCAL_PATH)/rootdir/etc/init.xiaomi_taro.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.xiaomi_taro.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.xiaomi_taro.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.xiaomi_taro.usb.rc \
     $(LOCAL_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_ODM)/etc/ueventd.rc
 
 # IR
@@ -326,6 +327,7 @@ PRODUCT_PACKAGES += \
     XiaomiTaroSettingsOverlay \
     XiaomiTaroSystemUIOverlay \
     XiaomiTaroWifiOverlay \
+    XiaomiTaroUsbOverlay \
     XiaomiTaroWifiMainlineOverlay
 
 # Partitions
@@ -404,6 +406,10 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_ODM_PROPERTIES += \
     vendor.usb.use_gadget_hal=0
+
+# USB - Device as Webcam
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.usb.uvc.enabled=true
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_VENDOR_PROPERTIES += \
